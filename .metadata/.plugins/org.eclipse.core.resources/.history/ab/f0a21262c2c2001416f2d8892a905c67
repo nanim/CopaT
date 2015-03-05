@@ -1,0 +1,57 @@
+package Negocio;
+
+import java.io.UnsupportedEncodingException;
+import java.security.*;
+import java.sql.ResultSet;
+
+import Banco.ConectaBanco;
+
+public class Usuario {
+
+	private String codigoUsuario;
+	private String senha;
+	private String email;
+	
+	
+	public void buscaUsuario()
+	{
+		ConectaBanco conn = new ConectaBanco();
+		conn.abreConexao();
+		
+		conn.fechaConexao();
+	}
+	
+	public ResultSet consultaUsuario(String codigoUsuario, String SenhaUsuario)
+	{
+		String sql = "Select * from usuario where codusuario = and senha =";
+		
+		return null;		
+	}
+
+	public void encript()
+	{
+		String senha = "admin";
+		MessageDigest algorithm = null;
+		
+		try {
+		
+			algorithm = MessageDigest.getInstance("SHA-256");
+				
+		} catch (NoSuchAlgorithmException e) {
+		
+			e.printStackTrace();
+		}
+		
+		try {
+			
+			byte messageDigest[] = algorithm.digest(senha.getBytes("UTF-8"));
+			System.out.println(messageDigest);
+		
+		} catch (UnsupportedEncodingException e) {
+		
+			e.printStackTrace();
+		}
+		
+	}
+	
+}

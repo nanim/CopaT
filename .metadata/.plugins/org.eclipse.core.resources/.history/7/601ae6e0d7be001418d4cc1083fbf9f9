@@ -1,0 +1,9 @@
+package Negocio;
+
+public class Usuario {
+
+	private String codigoUsuario;
+	private String senha;
+	private String email;
+
+}

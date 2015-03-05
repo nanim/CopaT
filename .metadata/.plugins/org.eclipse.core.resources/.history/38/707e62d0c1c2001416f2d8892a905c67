@@ -1,0 +1,27 @@
+package Negocio;
+
+import java.sql.ResultSet;
+
+import Banco.ConectaBanco;
+
+public class Usuario {
+
+	private String codigoUsuario;
+	private String senha;
+	private String email;
+
+	public void buscaUsuario()
+	{
+		ConectaBanco conn = new ConectaBanco();
+		conn.abreConexao();
+		
+		conn.fechaConexao();
+	}
+	
+	public ResultSet consultaUsuario(String codigoUsuario, String SenhaUsuario)
+	{
+		String sql = "Select * from usuario where codusuario = and senha =";
+		
+		return null;		
+	}
+}

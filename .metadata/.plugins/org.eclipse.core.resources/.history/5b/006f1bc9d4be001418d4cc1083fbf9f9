@@ -1,0 +1,72 @@
+package Interface;
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.JPasswordField;
+
+
+public class LoginFrame extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField txtLogin;
+	private JPasswordField passSenha;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					LoginFrame frame = new LoginFrame();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public LoginFrame() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		passSenha = new JPasswordField();
+		passSenha.setHorizontalAlignment(SwingConstants.CENTER);
+		passSenha.setBounds(115, 165, 204, 20);
+		contentPane.add(passSenha);
+		
+		txtLogin = new JTextField();
+		txtLogin.setHorizontalAlignment(SwingConstants.CENTER);
+		txtLogin.setBounds(115, 115, 204, 20);
+		contentPane.add(txtLogin);
+		txtLogin.setColumns(10);
+		
+		JLabel lblSenha = new JLabel("Senha");
+		lblSenha.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSenha.setBounds(115, 145, 204, 14);
+		contentPane.add(lblSenha);
+		
+		JLabel lblLogin = new JLabel("Login");
+		lblLogin.setHorizontalAlignment(SwingConstants.CENTER);
+		lblLogin.setBounds(115, 95, 204, 14);
+		contentPane.add(lblLogin);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setBounds(0, 0, 434, 262);
+		contentPane.add(lblNewLabel);
+	}
+}

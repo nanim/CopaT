@@ -1,0 +1,57 @@
+package Banco;
+import java.sql.*;
+
+import javax.swing.JOptionPane;
+
+
+public class ConectaBanco {
+	
+	private Connection conecta;
+	private String host = "bhd0005357";
+	private String database = "COPATOTVS";
+	private String driveConexao = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+	private String usuario = "rm";
+	private String senha = "rm";
+	private String url = "jdbc:sqlserver://" + host + ";DatabaseName=" + database;
+	
+	public Connection getConecta() {
+		return conecta;
+	}
+	
+	public void abreConexao()
+	{
+		try {
+			
+			Class.forName(driveConexao);
+			JOptionPane.showMessageDialog(null, "Conexão do driver");
+			//System.out.println("Driver existente");
+			this.conecta = DriverManager.getConnection(url, usuario, senha);
+			
+			System.out.println("conecta OK");
+			
+			Statement stm = conecta.createStatement();
+			
+			//return true;
+		} catch (Exception e) {
+			//e.printStackTrace();
+			//return false;
+		}		
+	}
+	
+	public boolean fechaConexao ()
+	
+	{
+		try {
+			this.conecta.close();
+			System.out.println("Conexão fechada");
+			return true;
+		} catch (Exception e) {
+			//e.printStackTrace();
+			return false;
+		}		
+	}
+
+
+
+
+}

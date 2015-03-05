@@ -1,0 +1,51 @@
+import java.sql.*;
+
+import javax.swing.JOptionPane;
+
+
+public class ConectaBanco {
+	
+	private Connection conecta;
+	private String host = "bhd0005357";
+	private String database = "COPATOTVS";
+	private String driveConexao = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+	private String usuario = "rm";
+	private String senha = "rm";
+	private String url = "jdbc:sqlserver://" + host + ";DatabaseName=" + database;
+	
+	public Connection getConecta() {
+		return conecta;
+	}
+	
+	public boolean abreConexao()
+	{
+		try {
+			
+			Class.forName(driveConexao);
+			
+			this.conecta = DriverManager.getConnection(url, usuario, senha);
+			
+			return true;
+		} catch (Exception e) {
+			//e.printStackTrace();
+			return false;
+		}		
+	}
+	
+	public boolean fechaConexao ()
+	
+	{
+		try {
+			this.conecta.close();
+			
+			return true;
+		} catch (Exception e) {
+			//e.printStackTrace();
+			return false;
+		}		
+	}
+
+
+
+
+}
