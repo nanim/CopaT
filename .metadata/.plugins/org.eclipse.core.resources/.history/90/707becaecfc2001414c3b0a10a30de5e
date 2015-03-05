@@ -64,7 +64,7 @@ public class LoginFrame extends JFrame {
 			 user.encript(passSenha.getPassword().toString());
 			}
 		});
-		btnNewButton.setBounds(319, 212, 89, 23);
+		btnNewButton.setBounds(172, 210, 89, 23);
 		contentPane.add(btnNewButton);
 		
 		passSenha = new JPasswordField();
